@@ -1,7 +1,26 @@
 import React from "react";
 import Todo from "./components/Todo";
 
-function App(): JSX.Element {
+interface Tasks {
+  id: string;
+  name: string;
+  completed: boolean;
+}
+
+interface Props {
+  tasks: Tasks[];
+}
+
+function App(props: Props): JSX.Element {
+  const taskList = props.tasks.map((task) => (
+    <Todo
+      id={task.id}
+      name={task.name}
+      completed={task.completed}
+      key={task.id}
+    />
+  ));
+
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
@@ -40,11 +59,7 @@ function App(): JSX.Element {
         </button>
       </div>
       <h2 id="list-heading">3 tasks remaining</h2>
-      <ul className="todo-list stack-large stack-exception">
-        <Todo name="Eat" completed={true} id="todo-1" />
-        <Todo name="Sleep" completed={false} id="todo-2" />
-        <Todo name="Repeat" completed={false} id="todo-3" />
-      </ul>
+      <ul className="todo-list stack-large stack-exception">{taskList}</ul>
     </div>
   );
 }
