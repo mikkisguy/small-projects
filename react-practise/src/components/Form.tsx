@@ -1,9 +1,13 @@
 import React from "react";
 
-// props: Props
 export default function Form() {
+  function HandleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    alert("Hello, world!");
+  }
+
   return (
-    <form>
+    <form onSubmit={HandleSubmit}>
       <h2 className="label-wrapper">
         <label htmlFor="new-todo-input" className="label__lg">
           What needs to be done?

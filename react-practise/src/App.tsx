@@ -11,6 +11,7 @@ interface Tasks {
 
 interface Props {
   tasks: Tasks[];
+  HandleSubmit?: React.FormEvent<HTMLFormElement>;
 }
 
 function App(props: Props): JSX.Element {
