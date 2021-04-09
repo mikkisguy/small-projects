@@ -1,7 +1,7 @@
-import React from "react";
-import Form from "./components/Form";
-import FilterButton from "./components/FilterButton";
-import Todo from "./components/Todo";
+import React from 'react';
+import Form from './components/Form';
+import FilterButton from './components/FilterButton';
+import Todo from './components/Todo';
 
 interface ITasks {
   id: string;
@@ -14,7 +14,7 @@ interface IProps {
   HandleSubmit?: React.FormEvent<HTMLFormElement>;
 }
 
-function App(props: IProps): JSX.Element {
+export default function App(props: IProps): JSX.Element {
   function addTask(name: string) {
     alert(name);
   }
@@ -42,5 +42,3 @@ function App(props: IProps): JSX.Element {
     </div>
   );
 }
-
-export default App;

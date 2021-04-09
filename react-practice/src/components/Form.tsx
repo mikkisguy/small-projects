@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from 'react';
 
 interface IProps {
   onTaskSubmit: (name: string) => void;
 }
 
 export default function Form(props: IProps) {
+  const [name, setName] = useState<string>('');
+
   function HandleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    props.onTaskSubmit("<marquee>jee</marquee>");
+    props.onTaskSubmit(name);
+    setName('');
+  }
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setName(event.target.value);
   }
 
   return (
@@ -23,6 +30,8 @@ export default function Form(props: IProps) {
         className="input input__lg"
         name="text"
         autoComplete="off"
+        value={name}
+        onChange={handleChange}
       />
       <button type="submit" className="btn btn__primary btn__lg">
         Add
