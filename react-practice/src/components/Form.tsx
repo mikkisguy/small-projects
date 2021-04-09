@@ -1,13 +1,13 @@
 import React from "react";
 
 interface IProps {
-  onTaskSubmit: any;
+  onTaskSubmit: (name: string) => void;
 }
 
 export default function Form(props: IProps) {
   function HandleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    props.onTaskSubmit("jee");
+    props.onTaskSubmit("<marquee>jee</marquee>");
   }
 
   return (
