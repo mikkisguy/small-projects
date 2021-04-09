@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 
 const DATA = [
-  { id: 'todo-0', name: 'Eat', completed: true },
-  { id: 'todo-1', name: 'Sleep', completed: false },
-  { id: 'todo-2', name: 'Repeat', completed: false },
+  { id: 'OyVdqf4FYoJ_JVJ4AYlNT', name: 'Eat', completed: true },
+  { id: 'a0CJRrAGXMMuk_5SSSruE', name: 'Sleep', completed: false },
+  { id: 'O-jGq69sWyjIHDRP9npXV', name: 'Repeat', completed: false },
 ];
 
 ReactDOM.render(
