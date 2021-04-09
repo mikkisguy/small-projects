@@ -15,6 +15,10 @@ interface Props {
 }
 
 function App(props: Props): JSX.Element {
+  function addTask(name: string) {
+    alert(name);
+  }
+
   const taskList = props.tasks.map((task) => (
     <Todo
       id={task.id}
@@ -27,7 +31,7 @@ function App(props: Props): JSX.Element {
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
-      <Form />
+      <Form addTask={addTask} />
       <div className="filters btn-group stack-exception">
         <FilterButton />
         <FilterButton />
