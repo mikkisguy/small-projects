@@ -39,5 +39,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "From: <https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_interactivity_events_state#handling_form_submission>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikkolar/small-stream-projects.git"
+  },
+  "author": "mikkolar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikkolar/small-stream-projects/issues"
+  },
+  "homepage": "https://github.com/mikkolar/small-stream-projects#readme"
 }
