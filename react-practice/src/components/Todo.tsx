@@ -1,12 +1,12 @@
 import React from "react";
 
-interface Props {
+interface IProps {
   name: string;
   completed: boolean;
   id: string;
 }
 
-export default function Todo(props: Props) {
+export default function Todo(props: IProps) {
   return (
     <li className="todo stack-small">
       <div className="c-cb">

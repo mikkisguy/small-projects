@@ -3,18 +3,18 @@ import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
 
-interface Tasks {
+interface ITasks {
   id: string;
   name: string;
   completed: boolean;
 }
 
-interface Props {
-  tasks: Tasks[];
+interface IProps {
+  tasks: ITasks[];
   HandleSubmit?: React.FormEvent<HTMLFormElement>;
 }
 
-function App(props: Props): JSX.Element {
+function App(props: IProps): JSX.Element {
   function addTask(name: string) {
     alert(name);
   }
@@ -31,7 +31,7 @@ function App(props: Props): JSX.Element {
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
-      <Form addTask={addTask} />
+      <Form onTaskSubmit={addTask} />
       <div className="filters btn-group stack-exception">
         <FilterButton />
         <FilterButton />

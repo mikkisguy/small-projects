@@ -1,13 +1,13 @@
 import React from "react";
 
-interface Props {
-  addTask: any
+interface IProps {
+  onTaskSubmit: any;
 }
 
-export default function Form(props: Props) {
+export default function Form(props: IProps) {
   function HandleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    props.addTask("jee");
+    props.onTaskSubmit("jee");
   }
 
   return (
