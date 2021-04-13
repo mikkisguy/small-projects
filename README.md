@@ -1,2 +1,2 @@
-# small-stream-projects
-Small projects for practise. Done in MikkisGuy's Twitch streams.
+# Small stream projects
+Small projects for practise. Done during [MikkisGuy's Twitch streams](http://twitch.tv/mikkisguy).
