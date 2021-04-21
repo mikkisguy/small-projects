@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface IProps {
   name: string;
@@ -12,6 +12,9 @@ interface IProps {
 export default function Todo(props: IProps) {
   const [editing, setEditing] = useState(false);
   const [newName, setNewName] = useState('');
+
+  const editFieldRef = useRef<HTMLInputElement>(null);
+  const editButtonRef = useRef<HTMLButtonElement>(null);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setNewName(event.target.value);
@@ -36,6 +39,7 @@ export default function Todo(props: IProps) {
           type="text"
           value={newName}
           onChange={handleChange}
+          ref={editFieldRef}
         />
       </div>
       <div className="btn-group">
@@ -43,6 +47,7 @@ export default function Todo(props: IProps) {
           type="button"
           className="btn todo-cancel"
           onClick={() => setEditing(false)}
+          ref={editButtonRef}
         >
           Cancel
           <span className="visually-hidden">renaming {props.name}</span>
@@ -81,6 +86,14 @@ export default function Todo(props: IProps) {
       </div>
     </div>
   );
+
+  useEffect(() => {
+    if (editing && editFieldRef.current !== null) {
+      editFieldRef.current.focus();
+    } else if (!editing && editButtonRef.current !== null) {
+      editButtonRef.current.focus();
+    }
+  }, [editing]);
 
   return <li className="todo">{editing ? editingTemplate : viewTemplate}</li>;
 }
