@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 
-// props: Props
-export default function FilterButton() {
+interface IProps {
+  isPressed: boolean;
+  name: string;
+  setFilter: Dispatch<React.SetStateAction<string>>;
+}
+
+export default function FilterButton(props: IProps) {
   return (
-    <button type="button" className="btn toggle-btn">
+    <button
+      type="button"
+      className="btn toggle-btn"
+      aria-pressed={props.isPressed}
+      onClick={() => props.setFilter(props.name)}
+    >
       <span className="visually-hidden">Show </span>
-      <span>all</span>
+      <span>{props.name}</span>
       <span className="visually-hidden"> tasks</span>
     </button>
   );
