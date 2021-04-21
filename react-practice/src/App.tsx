@@ -15,8 +15,11 @@ interface IProps {
   HandleSubmit?: React.FormEvent<HTMLFormElement>;
 }
 
-// TODO: any type is bad, gotta fix when I know how to do it right
-const FILTER_MAP: any = {
+interface IFilterMap {
+  [key: string]: (task: ITasks) => boolean;
+}
+
+const FILTER_MAP: IFilterMap = {
   All: () => true,
   Active: (task: ITasks) => !task.completed,
   Completed: (task: ITasks) => task.completed,
