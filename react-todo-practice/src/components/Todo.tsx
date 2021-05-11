@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { usePrevious } from '../utils';
 
 interface IProps {
   name: string;
@@ -7,15 +8,6 @@ interface IProps {
   onCheckboxChange: (id: string) => void;
   onDelete: (id: string) => void;
   editTask: (id: string, newName: string) => void;
-}
-
-function usePrevious(value: boolean) {
-  const ref = useRef<boolean>();
-  useEffect(() => {
-    ref.current = value;
-  });
-
-  return ref.current;
 }
 
 export default function Todo(props: IProps) {

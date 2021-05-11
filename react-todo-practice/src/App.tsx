@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
 import Todo from './components/Todo';
+import { usePrevious } from './utils';
 
 interface ITasks {
   id: string;
@@ -29,6 +30,8 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 export default function App(props: IProps): JSX.Element {
   const [tasks, setTasks] = useState(props.tasks);
   const [filter, setFilter] = useState('All');
+
+  const listHeadingRef = useRef<HTMLHeadingElement>(null);
 
   function addTask(name: string) {
     const newTask = { id: nanoid(), name: name, completed: false };
@@ -90,12 +93,25 @@ export default function App(props: IProps): JSX.Element {
   const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
 
+  const prevTaskLength = usePrevious(taskList.length);
+
+  useEffect(() => {
+    if (
+      taskList.length - Number(prevTaskLength) === -1 &&
+      listHeadingRef.current !== null
+    ) {
+      listHeadingRef.current.focus();
+    }
+  }, [taskList.length, prevTaskLength]);
+
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
       <Form onTaskSubmit={addTask} />
       <div className="filters btn-group stack-exception">{filterList}</div>
-      <h2 id="list-heading">{headingText}</h2>
+      <h2 id="list-heading" tabIndex={-1} ref={listHeadingRef}>
+        {headingText}
+      </h2>
       <ul className="todo-list stack-large stack-exception">{taskList}</ul>
     </div>
   );
