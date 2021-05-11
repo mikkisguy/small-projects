@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { usePrevious } from '../utils';
 
 interface IProps {
   name: string;
@@ -10,8 +11,10 @@ interface IProps {
 }
 
 export default function Todo(props: IProps) {
-  const [editing, setEditing] = useState(false);
+  const [isEditing, setEditing] = useState(false);
   const [newName, setNewName] = useState('');
+
+  const wasEditing = usePrevious(isEditing);
 
   const editFieldRef = useRef<HTMLInputElement>(null);
   const editButtonRef = useRef<HTMLButtonElement>(null);
@@ -88,12 +91,12 @@ export default function Todo(props: IProps) {
   );
 
   useEffect(() => {
-    if (editing && editFieldRef.current !== null) {
+    if (!wasEditing && isEditing && editFieldRef.current !== null) {
       editFieldRef.current.focus();
-    } else if (!editing && editButtonRef.current !== null) {
+    } else if (wasEditing && !isEditing && editButtonRef.current !== null) {
       editButtonRef.current.focus();
     }
-  }, [editing]);
+  }, [wasEditing, isEditing]);
 
-  return <li className="todo">{editing ? editingTemplate : viewTemplate}</li>;
+  return <li className="todo">{isEditing ? editingTemplate : viewTemplate}</li>;
 }
