@@ -11,4 +11,5 @@ def get_plan_time():
 print(f"Language: {random.choice(idea_crumbs.languages)}")
 print(f"Plan time: {get_plan_time()} min")
 print(f"Dev time: {dev_time} min")
-print(f"Keyword: {random.sample(idea_crumbs.keywords, keywords_count)}") # Takes unique values
+print(f"Boring keywords: {random.sample(idea_crumbs.boring_keywords, keywords_count)}") # Takes unique values
+print(f"Fun keywords: {random.sample(idea_crumbs.fun_keywords, keywords_count)}") # Takes unique values
