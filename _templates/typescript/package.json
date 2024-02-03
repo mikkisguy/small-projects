@@ -1,0 +1,11 @@
+{
+  "name": "typescript-template-project",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "scripts": {
+    "prestuff": "yarn add ts-node && yarn add -D typescript && yarn add @types/node -D",
+    "run": "ts-node --transpile-only index.ts"
+  }
+}
+
