@@ -2,7 +2,7 @@ import random
 import time
 import idea_crumbs
 
-print("Generating idea... *drum sound*")
+print("Generating idea... *drum roll*")
 
 time.sleep(2)
 
