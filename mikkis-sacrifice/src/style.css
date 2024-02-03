@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+#ritual-image {
+  width: 300px;
+  height: auto;
+  z-index: 0;
+  border: 3px solid yellow;
+}
+
+#mikkisguy-head {
+  width: 200px;
+  height: auto;
+  z-index: 1;
+  position: absolute;
+}
+
