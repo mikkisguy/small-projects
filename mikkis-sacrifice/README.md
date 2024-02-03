@@ -10,7 +10,7 @@
 
 ## Overall score
 
-Time penalty: -47
+Time penalty: -47 (Additional dev time: 14min 20sec)
 
 Success bonus: +10
 
