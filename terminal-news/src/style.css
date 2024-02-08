@@ -1,0 +1,28 @@
+* {
+  font-family: monospace;
+  color: #1872ad;
+}
+
+.header,
+.content {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 5px;
+}
+
+.header-text {
+  text-decoration: underline;
+}
+
+#news {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 20px;
+  padding: 10px 20px;
+}
+
+.terminal {
+  font-weight: bold;
+  color: #18ad45;
+}
+
